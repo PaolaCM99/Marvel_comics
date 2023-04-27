@@ -1,0 +1,64 @@
+<main>
+
+  <section>
+    <section class="section-header">
+      <div class="container-title-characters">
+        <img class="img-characters" src="../../../../assets/icons/characters.png">
+        <h1 class="title-characters"> Characters</h1>
+      </div>
+
+      <div class="container-filter">
+        <select name="rental-option">
+          <option value="" selected>Sort by</option>
+          <option value="small">Small</option>
+          <option value="family">Family Sedan</option>
+          <option value="lux">Luxury</option>
+        </select>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="container">
+
+        <div class="card-columns">
+          <div class="card" *ngFor="let character of characters">
+
+            <div class="card-body">
+
+              <div class="card-content">
+                <div>
+                  <img class="card-img" src="{{character?.thumbnail?.path}}.{{character?.thumbnail?.extension}}"
+                    alt="image-character">
+                </div>
+
+                <div>
+                  <h5 class="card-title">{{character?.name | uppercase }}</h5>
+                  <p class="card-text">{{character?.description}}</p>
+                  <button>
+                    VIEW MORE
+                  </button>
+                </div>
+
+              </div>
+
+              <div>
+                <h5>Related comics</h5>
+                <div class="container-comics" >
+                  <div *ngFor="let item of character?.comics?.items; let i=index">
+                    <p *ngIf="i<4">{{item?.name}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </section>
+
+  <aside>
+
+  </aside>
+</main>

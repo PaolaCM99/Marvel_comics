@@ -39,3 +39,13 @@ input{
   outline: none;
   width: 80%;
 }
+@media (max-width: 768px) {
+  header{
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+  }
+  .container-search{
+    margin: auto;
+    width: 78%;
+  }
+}

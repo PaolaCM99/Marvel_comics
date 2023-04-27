@@ -5,10 +5,10 @@ import { RouterConstans } from './constants/routes';
 const routes: Routes = [
   {
     path: RouterConstans.HOME,
-
+    loadChildren: () =>
+    import('./pages/pages.module').then((m) => m.PagesModule),
   },
 ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),

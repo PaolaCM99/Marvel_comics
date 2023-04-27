@@ -8,4 +8,8 @@ body, html, footer, header{
   vertical-align: baseline;
   color: #fdfdfd;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  background: rgb(238, 238, 238);
 }

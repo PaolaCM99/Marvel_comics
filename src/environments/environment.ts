@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  public_key:'2e2ef877c5393578e3fd0da4805fd25f',
+  private_key:'48aa16c51d4af796dc8b68e0a1b6472b7542a7a6',
+  gate:'http://gateway.marvel.com/v1/public/characters?ts=1&apikey=2e2ef877c5393578e3fd0da4805fd25f&hash=5a274982d9c94d8431464a6c055c0dc3'
+  //http://gateway.marvel.com/v1/public/comics?ts=1&apikey=2e2ef877c5393578e3fd0da4805fd25f&hash=5a274982d9c94d8431464a6c055c0dc3
+  //public key of "1234" and a private key of "abcd"
 };
 
 /*
