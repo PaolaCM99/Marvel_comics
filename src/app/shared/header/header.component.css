@@ -1,0 +1,41 @@
+header{
+  height: 80px;
+  background-color: rgb(31, 29, 29);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 30px;
+  box-shadow: rgb(73, 73, 73) 0px 0px 10px 0px;
+}
+.section-logo{
+  flex-grow: 1;
+  cursor: pointer;
+}
+.section-search{
+  flex-grow: 2;
+}
+
+.section-logo img{
+  height: 50px;
+  width: auto;
+}
+.container-search{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2px;
+  padding: 5px 10px;
+}
+input{
+  border: none;
+  outline: none;
+  width: 80%;
+}
