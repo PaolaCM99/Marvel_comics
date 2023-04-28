@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/interface/characters/character';
 import { CharactersService } from 'src/app/services/characters/characters.service';
+import { LocalService } from 'src/app/services/localStorage/storage.service';
 
 @Component({
   selector: 'app-characters',
@@ -9,9 +10,10 @@ import { CharactersService } from 'src/app/services/characters/characters.servic
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(private charactersService: CharactersService) { }
+  constructor(private charactersService: CharactersService, private localService:LocalService) { }
   public characters: any;
   public charactersFilter: any;
+  listFav: any[] = [];
   page: number = 1;
   search: string = '';
 
@@ -23,6 +25,8 @@ export class CharactersComponent implements OnInit {
       this.charactersFilter = this.characters;
     }
     );
+    this.listFav=this.localService.getData();
+
   }
 
   public applyFilter(search: string) {

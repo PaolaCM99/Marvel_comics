@@ -21,7 +21,15 @@
   </div>
 
   <div class="container-buttons">
-    <button class="btn-comics"> <img src="../../../assets/icons/btn-favourites-default.png" width="40px" height="40px"> ADD TO FAVOURITES</button>
-    <button class="btn-comics"> <img src="../../../assets/icons/shopping-cart-primary.png" > BUY FOR $</button>
+
+    <button class="btn-comics" (click)="saveFav()" *ngIf="!addedFav" >
+      <img src="../../../assets/icons/btn-favourites-default.png" width="40px" height="40px"> ADD TO FAVOURITES
+    </button>
+
+    <button class="btn-comics-added" *ngIf="addedFav">
+      <img src="../../../assets/icons/btn-favourites-primary.png" width="40px" height="40px"> ADDED TO FAVOURITES
+    </button>
+
+    <button class="btn-comics"> <img src="../../../assets/icons/shopping-cart-primary.png" > BUY FOR ${{comic?.prices[0].price}}</button>
   </div>
 </section>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -6,20 +7,20 @@ import { Injectable } from '@angular/core';
 })
 export class LocalService {
 
-  key = "";
+  favouritos:any[] = [];
 
   constructor() { }
 
-  public saveData(key: string, value: string) {
-    localStorage.setItem(key, value);
+  public saveData(value:any) {
+    localStorage.setItem("favouritos", JSON.stringify(value));
   }
 
-  public getData(key: string) {
-    let data = localStorage.getItem(key)|| "";
+  public getData() {
+    let data = JSON.parse(localStorage.getItem("favouritos")!);
     return data;
   }
-  public removeData(key: string) {
-    localStorage.removeItem(key);
+  public removeData() {
+    localStorage.removeItem("favouritos");
   }
 
   public clearData() {

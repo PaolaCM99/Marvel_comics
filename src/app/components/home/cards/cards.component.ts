@@ -11,11 +11,11 @@ export class CardsComponent implements OnInit {
   constructor(private charactersService: CharactersService) { }
   showModal = false;
   comicData: any;
+
   ngOnInit(): void {
   }
 
   public searchComic(comic: any): void {
-
     this.charactersService.getComic(comic.resourceURI).subscribe((data: any) => {
       if (data.data.results[0]) {
         this.character.comic = data.data.results[0];
@@ -25,6 +25,8 @@ export class CardsComponent implements OnInit {
     }
     );
   }
+
+
   public closeModal(hide: boolean) {
     this.showModal = !hide;
   }
