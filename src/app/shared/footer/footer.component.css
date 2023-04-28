@@ -1,11 +1,11 @@
 footer{
   background-color: rgb(31, 29, 29);
-  height: 150px;
-  width: 100vw;
+  height: 100px;
+  width: 100%;
   bottom: 0;
   padding: 10px 30px;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   box-shadow: rgb(73, 73, 73) 0px 0px 10px 0px;
 }
 .section-copyright{
@@ -15,5 +15,5 @@ footer{
 }
 .copyright-text{
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 16px;
 }
