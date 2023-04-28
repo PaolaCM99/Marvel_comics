@@ -12,12 +12,11 @@ export class CharactersService {
   constructor(private http: HttpClient) { }
   urlMarvel= `${environment.endpoint}`;
 
-  getAllCharacters():Observable<object> {
-    return this.http.get(`${this.urlMarvel}characters`, {params: {ts: '1', apikey: `${environment.public_key}`, hash: `${environment.md5}`,limit: 100}});
+  getAllCharacters(offset:number):Observable<Character[]> {
+    return this.http.get<Character[]>(`${this.urlMarvel}characters`, {params: {ts: '1', apikey: `${environment.public_key}`, hash: `${environment.md5}`,limit: 100, offset:offset}});
   };
 
   getComic(resource:string):Observable<object> {
-    // comics/24571
     return this.http.get(`${resource}`, {params: {ts: '1', apikey: `${environment.public_key}`, hash: `${environment.md5}`,limit: 100}});
   };
 }

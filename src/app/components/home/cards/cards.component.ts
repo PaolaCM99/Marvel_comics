@@ -26,7 +26,6 @@ export class CardsComponent implements OnInit {
     );
   }
 
-
   public closeModal(hide: boolean) {
     this.showModal = !hide;
   }

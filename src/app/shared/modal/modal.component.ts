@@ -11,7 +11,7 @@ export class ModalComponent implements OnInit {
   @Input() comic: any;
 
   ListFav: any[] = [];
-  addedFav:boolean=false;
+  addedFav: boolean = false;
 
   constructor(private localService: LocalService) { }
 
@@ -26,21 +26,21 @@ export class ModalComponent implements OnInit {
   public saveFav() {
     if (this.localService.getData() !== null) {
       this.localService.getData().forEach((element: any) => {
-        this.addedFav=element === this.comic.id ? true : false
+        this.addedFav = element === this.comic.title ? true : false
         this.ListFav.push(element)
       });
-
-    this.ListFav.push(this.comic.id)
-    const dataArr = new Set(this.ListFav);
-
-    this.localService.saveData([...dataArr])
     }
+
+    this.ListFav.push(this.comic.title)
+    const dataArr = new Set(this.ListFav);
+    this.localService.saveData([...dataArr])
+
     this.isAdded()
   }
 
-  public isAdded(){
+  public isAdded() {
     this.ListFav.forEach((element: any) => {
-      this.addedFav=element === this.comic.id ? true : false
+      this.addedFav = element === this.comic.title ? true : false
     });
   }
 }
