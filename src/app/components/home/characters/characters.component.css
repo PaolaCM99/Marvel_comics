@@ -76,7 +76,7 @@ padding: 0px 20px 20px;
 overflow: hidden;
 }
 
-.section-title-favourites, .comics-favourites{
+.section-title-favourites{
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -89,10 +89,25 @@ overflow: hidden;
   font-weight: 700;
 }
 .comics-favourites{
+  display: flex;
+  flex-direction: column;
   font-size: 16px;
 }
 .name-comic{
   width: 200px;
+  font-weight: 700;
+  text-align: center;
+}
+.btn-delete{
+  width: 30px;
+  position: relative;
+  left: 55%;
+  top: 10px;
+}
+.img-comic{
+  height: 250px;
+  width: 60%;
+  background-color: #8f8f8f;
 }
 .title-favourites{
   font-size: 21px;
@@ -141,6 +156,7 @@ header{
   position: fixed;
   top: 0;
   display: flex;
+  z-index: 2;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
