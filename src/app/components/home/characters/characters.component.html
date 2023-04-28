@@ -1,6 +1,19 @@
-<main>
+<header>
+  <section class="section-logo">
+    <img src="../../../assets/images/marvel.png">
+  </section>
 
+  <section class="section-search">
+    <div class="container-search">
+      <input type="search" placeholder="Search character..." (keyup)="applyFilter(search)"  [(ngModel)]="search">
+      <img src="../../../assets/icons/search.png" style="height: 40px;">
+    </div>
+  </section>
+</header>
+
+<main>
   <section>
+
     <section class="section-header">
       <div class="container-title-characters">
         <img class="img-characters" src="../../../../assets/icons/characters.png">
@@ -10,9 +23,8 @@
       <div class="container-filter">
         <select name="rental-option">
           <option value="" selected>Sort by</option>
-          <option value="small">Small</option>
-          <option value="family">Family Sedan</option>
-          <option value="lux">Luxury</option>
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
         </select>
       </div>
     </section>
@@ -22,43 +34,26 @@
       <div class="container">
 
         <div class="card-columns">
-          <div class="card" *ngFor="let character of characters">
-
-            <div class="card-body">
-
-              <div class="card-content">
-                <div>
-                  <img class="card-img" src="{{character?.thumbnail?.path}}.{{character?.thumbnail?.extension}}"
-                    alt="image-character">
-                </div>
-
-                <div>
-                  <h5 class="card-title">{{character?.name | uppercase }}</h5>
-                  <p class="card-text">{{character?.description}}</p>
-                  <button>
-                    VIEW MORE
-                  </button>
-                </div>
-
-              </div>
-
-              <div>
-                <h5>Related comics</h5>
-                <div class="container-comics" >
-                  <div *ngFor="let item of character?.comics?.items; let i=index">
-                    <p *ngIf="i<4">{{item?.name}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="card" *ngFor="let character of charactersFilter| paginate: { itemsPerPage: 20, currentPage: page }">
+           <app-cards [character]="character"></app-cards>
           </div>
         </div>
 
       </div>
+      <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
     </section>
   </section>
 
   <aside>
+    <section class="section-title-favourites">
+      <img src="../../../../assets/icons/favourites.png" width="40px" height="40px">
+      <h5>My favourites</h5>
+    </section>
 
+    <div class="section-comics-favourites">
+    </div>
   </aside>
 </main>
+
+
+

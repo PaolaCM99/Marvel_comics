@@ -10,9 +10,14 @@ import { environment } from 'src/environments/environment';
 export class CharactersService {
 
   constructor(private http: HttpClient) { }
-  urlMarvel=environment.gate;
+  urlMarvel= `${environment.endpoint}`;
 
-  getCharacters():Observable<object> {
-    return this.http.get(`${this.urlMarvel}`);
-  }
+  getAllCharacters():Observable<object> {
+    return this.http.get(`${this.urlMarvel}characters`, {params: {ts: '1', apikey: `${environment.public_key}`, hash: `${environment.md5}`,limit: 100}});
+  };
+
+  getComic(resource:string):Observable<object> {
+    // comics/24571
+    return this.http.get(`${resource}`, {params: {ts: '1', apikey: `${environment.public_key}`, hash: `${environment.md5}`,limit: 100}});
+  };
 }

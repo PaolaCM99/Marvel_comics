@@ -1,1 +1,27 @@
-<p>modal works!</p>
+<section>
+  <div class="container-btn-close">
+    <button class="btn-close" (click)=" closeModal(true)">
+      <img src="../../../assets/icons/btn-close.png" width="20px"  class="img-close">
+    </button>
+  </div>
+
+
+  <div class="container-comic-data">
+    <div class="container-comic-image">
+      <img class="comic-image" src="{{comic?.images[0]?.path}}.{{comic?.images[0]?.extension}}">
+    </div>
+
+    <article>
+      <h2>{{comic?.title}}</h2>
+      <p>
+       {{comic?.description}}
+      </p>
+
+    </article>
+  </div>
+
+  <div class="container-buttons">
+    <button class="btn-comics"> <img src="../../../assets/icons/btn-favourites-default.png" width="40px" height="40px"> ADD TO FAVOURITES</button>
+    <button class="btn-comics"> <img src="../../../assets/icons/shopping-cart-primary.png" > BUY FOR $</button>
+  </div>
+</section>
