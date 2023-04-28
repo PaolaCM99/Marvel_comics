@@ -53,10 +53,10 @@
       <h2 class="title-favourites">My favourites</h2>
     </section>
 
-    <div class="section-comics-favourites">
+    <div class="section-comics-favourites" *ngIf="!emptyList">
       <div *ngFor="let item of listFav" style="color: black;" class="comics-favourites">
         <p class="name-comic"> {{item}} </p>
-        <img src="../../../../assets/icons/btn-delete.png">
+        <img src="../../../../assets/icons/btn-delete.png" (click)="deleteFav(item)">
       </div>
     </div>
   </aside>

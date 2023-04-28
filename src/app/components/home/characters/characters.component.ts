@@ -20,7 +20,7 @@ export class CharactersComponent implements OnInit {
   totalItems: number = 0;
   offset = 0;
   limit = 100;
-
+  emptyList = false;
 
   ngOnInit(): void {
     this.getAllCharacters();
@@ -52,8 +52,14 @@ export class CharactersComponent implements OnInit {
 
   loadMoreCharacters() {
     this.offset += this.limit;
-    this.getAllCharacters(); // función para solicitar los datos a la API con los nuevos valores de offset y limit
+    this.getAllCharacters();
   }
 
+  deleteFav(item:any){
+    this.listFav.splice(this.listFav.indexOf(item), 1);
+    this.localService.saveData(this.listFav);
+    this.listFav = this.localService.getData();
+    this.emptyList=this.listFav.length!==0?true:false
+  }
 
 }
